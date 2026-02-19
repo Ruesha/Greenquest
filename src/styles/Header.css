@@ -1,0 +1,180 @@
+/* ================= HEADER POSITION ================= */
+
+.header {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+/* ================= NAV CONTAINER (GLASS STYLE) ================= */
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(52, 52, 52, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(104, 102, 102, 0.25);
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 8px 30px rgba(0, 39, 109, 0.25);
+
+  transition: all 0.3s ease;
+}
+
+/* ================= LOGO ================= */
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* ================= NAV LINKS ================= */
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  transition: all 0.4s ease;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+/* Eco Green underline */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #2E7E52;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #2E7E52;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ================= CTA BUTTON ================= */
+
+.cta-btn {
+  background-color: #EFA500;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  font-weight: 600;
+  color: #212121;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #2E7E52;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ================= HAMBURGER ================= */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animate to X */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  /* Make header full width */
+  .header {
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+  }
+
+  /* Remove floating rounded look */
+  .nav-container {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  /* Hide nav by default */
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    transform: translateY(-200%);
+    width: 100%;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+
+    background: rgba(52, 52, 52, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-radius: 0;
+    border-top: 1px solid rgba(104, 102, 102, 0.25);
+
+    box-shadow: 0 8px 30px rgba(0, 39, 109, 0.25);
+
+    transition: all 0.4s ease;
+  }
+
+  /* Show nav when active */
+  .nav-links.active {
+    transform: translateY(0);
+  }
+
+  /* Show hamburger */
+  .hamburger {
+    display: flex;
+  }
+}

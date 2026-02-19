@@ -1,0 +1,117 @@
+.video-about {
+  width: 100%;
+  background: black;
+}
+
+/* 🔥 THIS ADDS THE BREATHING SPACE */
+.video-block {
+  padding: 120px 0;
+}
+
+/* Video section still big but not jammed */
+.video-section {
+  position: relative;
+  width: 92%;
+  height: 85vh;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* Video */
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+/* Overlay */
+.video-overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.75)
+  );
+}
+
+/* TEXT BASE */
+.video-text {
+  position: absolute;
+  bottom: 14%;
+  color: white;
+  z-index: 2;
+  max-width: 600px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* LEFT POSITION */
+.video-text.left {
+  left: 6%;
+  text-align: left;
+}
+
+/* RIGHT POSITION */
+.video-text.right {
+  right: 6%;
+  text-align: right;
+}
+
+/* Heading */
+.video-text h1 {
+  font-size: clamp(36px, 4vw, 68px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+/* Sub text */
+.video-text p {
+  font-size: clamp(16px, 1.4vw, 22px);
+  opacity: 0.9;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .video-block {
+    padding: 80px 0;
+  }
+
+  .video-section {
+    width: 95%;
+    height: 75vh;
+  }
+
+  .video-text.left,
+  .video-text.right {
+    left: 6%;
+    right: 6%;
+    text-align: left;
+  }
+}
+/* Section headings above video blocks */
+.section-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(28px, 2.5vw, 48px);
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  text-shadow: 0 0 12px rgba(245, 245, 245, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: clamp(22px, 4vw, 36px);
+    margin-bottom: 30px;
+  }
+}

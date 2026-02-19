@@ -1,0 +1,91 @@
+/* ================= PARTNERS SECTION ================= */
+
+.partners-section {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: 40px;
+  padding: 40px 30px;
+  background: rgba(9, 20, 22, 1);
+  border: 18px solid transparent;
+  justify-items: center;
+  align-items: start;
+}
+
+/* ================= TITLE ================= */
+
+.partners-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 255, 200, 0.3);
+}
+
+/* ================= LOGO GRID ================= */
+
+.logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 30px;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+}
+
+/* ================= LOGO STYLE ================= */
+
+.logos img {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  filter: grayscale(100%) brightness(1.2);
+  opacity: 0.8;
+  transition: all 0.35s ease;
+}
+
+/* Hover Effect */
+.logos img:hover {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 992px) {
+
+  .partners-title {
+    font-size: 1.9rem;
+  }
+
+  .logos {
+    gap: 20px;
+  }
+}
+
+/* ================= MOBILE (FORCE 4 PER ROW) ================= */
+
+@media (max-width: 600px) {
+
+  .partners-section {
+    padding: 30px 20px;
+  }
+
+  .partners-title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .logos {
+    grid-template-columns: repeat(4, 1fr); /* 🔥 4 logos per row */
+    gap: 15px;
+  }
+
+  .logos img {
+    max-width: 90px; /* shrink slightly to fit neatly */
+  }
+}

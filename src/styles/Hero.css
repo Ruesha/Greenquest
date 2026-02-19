@@ -1,0 +1,140 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 11;
+  padding: 10px 40px;
+  text-align: left;
+  max-width: 900px;
+}
+
+/* 🔥 Title */
+.hero-title {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
+  animation: slideIn 1.2s ease forwards;
+}
+
+.hero-tagline {
+  margin-top: 12px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.hero-description {
+  margin-top: 18px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  max-width: 600px;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 1.2s;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ================= MOBILE IMPROVEMENT ================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    justify-content: flex-start; /* push content left */
+  }
+
+  .hero-content {
+    padding: 0 20px;
+    text-align: left; /* 🔥 keep left aligned */
+  }
+
+  .hero-title {
+    font-size: 2rem;        /* smaller */
+    letter-spacing: 1px;    /* reduce spacing */
+    line-height: 1.3;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 14px;
+  }
+}
+
+/* ================= EXTRA SMALL PHONES ================= */
+
+@media (max-width: 400px) {
+
+  .hero-title {
+    font-size: 2.6rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.9rem;
+  }
+
+  .hero-description {
+    font-size: 0.85rem;
+  }
+  .hero{
+    height: 90vh;
+  }
+}

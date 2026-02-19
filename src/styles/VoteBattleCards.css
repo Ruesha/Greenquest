@@ -1,0 +1,149 @@
+/* Container */
+.vote-battle-container {
+  padding: 60px 10%;
+  background-color: #091416;
+  color: #fff;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  background-image: url(../../src/assets/THE\ DAM\ FROM\ AFAR.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Header & Subtitle */
+.vote-battle-container .header h1 {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+}
+
+.vote-battle-container .header .subtitle {
+  font-size: 1.1rem;
+  color: #00c6ff;
+  letter-spacing: 1px;
+}
+
+/* Cards wrapper */
+.cards-wrapper {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+/* Individual Card */
+.battle-card {
+  background-color: #132022;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(0, 198, 255, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.battle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 198, 255, 0.3);
+}
+
+/* Card Image */
+.card-image-wrapper img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px solid #00c6ff;
+}
+
+/* Card Content */
+.card-content {
+  padding: 15px;
+  width: 90%;
+}
+
+/* Vote Button */
+.vote-button {
+  margin-top: 12px;
+  padding: 10px 22px;
+  background-color: #00c6ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.vote-button:hover {
+  background-color: #00a1d6;
+  transform: scale(1.05);
+}
+
+/* Vote Bar Wrapper */
+.vote-bar-wrapper {
+  background-color: #0a1c1f;
+  border-radius: 8px;
+  height: 14px;
+  margin-top: 15px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Vote Bar Fill */
+.vote-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00c6ff, #00f0ff);
+  transition: width 0.4s ease;
+}
+
+/* Vote Count */
+.vote-count {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #00c6ff;
+}
+
+/* Total Votes */
+.total-votes {
+  margin-top: 50px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #00f0ff;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .cards-wrapper {
+    gap: 20px;
+  }
+
+  .battle-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-wrapper {
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+  }
+
+  .battle-card {
+    width: 90%;
+  }
+
+  .vote-battle-container .header h1 {
+    font-size: 2rem;
+  }
+
+  .vote-battle-container .header .subtitle {
+    font-size: 1rem;
+  }
+}

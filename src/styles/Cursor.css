@@ -1,0 +1,66 @@
+/* Hide default cursor */
+body {
+  cursor: none;
+}
+
+/* Glowing, pulsing cursor dot */
+.custom-cursor {
+  position: fixed;
+  width: 13px;  /* reduced from 18px */
+  height: 13px; /* reduced from 18px */
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+
+  background: #00ff00; /* bright green */
+  box-shadow:
+    0 0 8px #00ff00,
+    0 0 16px #00ff00,
+    0 0 24px rgba(0, 255, 0, 0.9);
+
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+/* Grow when hovering clickable elements */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor {
+  transform: translate(-50%, -50%) scale(1.8);
+  animation: pulse-hover 1s infinite ease-in-out;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow:
+      0 0 8px #00ff00,
+      0 0 16px #00ff00,
+      0 0 24px rgba(0, 255, 0, 0.9);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.4);
+    box-shadow:
+      0 0 12px #00ff00,
+      0 0 24px #00ff00,
+      0 0 36px rgba(0, 255, 0, 0.9);
+  }
+}
+
+/* Pulse animation when hovering */
+@keyframes pulse-hover {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1.8);
+    box-shadow:
+      0 0 16px #00ff00,
+      0 0 32px #00ff00,
+      0 0 48px rgba(0, 255, 0, 0.9);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(2);
+    box-shadow:
+      0 0 20px #00ff00,
+      0 0 40px #00ff00,
+      0 0 60px rgba(0, 255, 0, 0.9);
+  }
+}

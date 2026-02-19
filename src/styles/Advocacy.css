@@ -1,0 +1,126 @@
+/* ================= SECTION ================= */
+.advocacy-section {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 80px 5%;
+  background: #091416;
+  align-items: center;
+}
+
+.advocacy-text h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 20px;
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  text-align: center;
+}
+
+.advocacy-text p {
+  color: #cfe3e6;
+  line-height: 1.7;
+  max-width: 720px;
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+/* ================= INFINITE GALLERY ================= */
+.infinite-gallery {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: scrollGallery 60s linear infinite;
+  will-change: transform;
+}
+
+.gallery-card {
+  width: 520px;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #0f1f23;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+@keyframes scrollGallery {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover */
+.infinite-gallery:hover .gallery-track {
+  animation-play-state: paused;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1200px) {
+  .gallery-card {
+    width: 440px;
+    height: 260px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  .advocacy-section {
+    padding: 70px 6%;
+  }
+  .gallery-card {
+    width: 380px;
+    height: 225px;
+    border-radius: 14px;
+  }
+  .gallery-track {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-card {
+    width: 320px;
+    height: 190px;
+    border-radius: 12px;
+  }
+  .infinite-gallery {
+    padding: 16px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .advocacy-section {
+    padding: 60px 4%;
+    gap: 40px;
+  }
+  .gallery-card {
+    width: 260px;
+    height: 155px;
+    border-radius: 10px;
+  }
+  .gallery-track {
+    gap: 10px;
+  }
+}
