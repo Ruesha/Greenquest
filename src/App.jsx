@@ -1,17 +1,20 @@
-import React from 'react'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import CustomCursor from "./components/CustomCusor";
+import Landing from "./pages/Landing";
+import Shop from "./pages/Shop";
 
-import "./App.css"
-import CustomCursor from './components/CustomCusor'
-import Landing from './pages/Landing'
 const App = () => {
   return (
-    <div>
+    <Router>
       <CustomCursor />
-      <Landing />
-   
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/shop" element={<Shop />} />
+      </Routes>
+    </Router>
+  );
+};
 
-    </div>
-  )
-}
-
-export default App
+export default App;

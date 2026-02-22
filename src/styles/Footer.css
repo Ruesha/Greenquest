@@ -1,0 +1,98 @@
+.footer-wrapper {
+  width: 100%;
+  background-color: #091416; /* gray-100 */
+  padding: 3rem 2rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #ffff; /* gray-800 */
+}
+
+/* Top section: logo & app download */
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  border-bottom: 1px solid #e5e7eb; /* gray-200 */
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .footer-top {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.footer-left {
+  max-width: 424px;
+}
+
+.footer-logo {
+  width: 96px;
+  height: 56px;
+}
+
+.footer-desc {
+  margin-top: 1.25rem;
+  color: #4b5563; /* gray-600 */
+  line-height: 1.6;
+}
+
+/* Right Section */
+.footer-right h4 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.app-images {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.appstore, .googleplay {
+  width: 96px;
+  height: 32px;
+}
+
+/* Socials Section */
+.footer-socials {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .footer-socials {
+    justify-content: flex-start;
+  }
+}
+
+.footer-socials ul {
+  display: flex;
+  gap: 1.25rem; /* spacing between icons */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer-socials li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.social-icon {
+  width: 21px;
+  height: 21px;
+  padding: 0.25rem;
+  border-radius: 50%;
+  background-color: #22c55e; /* primaryGreen */
+  color: white;
+  transition: transform 0.2s;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+}

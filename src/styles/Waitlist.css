@@ -1,0 +1,139 @@
+/* Full-width waitlist section with dark overlay */
+.waitwrapper {
+  width: 100%;
+  font-family: 'Orbitron', sans-serif;
+  padding: 4rem 1rem; /* vertical + horizontal padding */
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Background image + overlay */
+  position: relative;
+  background-image: url('../assets/wait.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* Dark overlay using pseudo-element */
+.waitwrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* adjust opacity as needed */
+  z-index: -1; /* behind content */
+}
+
+/* Header */
+.waitheader {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #3b82f6; /* primary blue */
+  position: relative;
+  z-index: 2; /* above overlay */
+}
+
+/* Paragraph */
+.waitpara {
+  font-size: 1.2rem;
+  max-width: 900px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  position: relative;
+  z-index: 2;
+}
+
+/* Form */
+.waitform {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Input and button styles remain the same */
+.waitform input {
+  flex: 1;
+  min-width: 250px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.waitform input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #3b82f6;
+}
+
+.waitform button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.waitform button:hover:not(:disabled) {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.waitform button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.waitmessage {
+  margin-top: 1rem;
+  font-weight: 500;
+  color: #22c55e;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive for small screens */
+@media (max-width: 700px) {
+  .waitform {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .waitform input,
+  .waitform button {
+    width: 100%;
+  }
+
+  .waitheader {
+    font-size: 2rem;
+  }
+
+  .waitpara {
+    font-size: 1rem;
+  }
+}

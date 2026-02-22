@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-import '../styles/Header.css'
-import logo from '../assets/logo.png'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "../styles/Header.css";
+import logo from "../assets/logo.png";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="header">
@@ -15,12 +16,12 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
-          <a href="#home" className="active">Home</a>
+         <Link to="/" className="active">Home</Link>
           <a href="#who">Who We Are</a>
           <a href="#advocacy">Advocacy Programme</a>
           <a href="#partners">Our Partners</a>
-          <a href="#contact">Contact Us</a>
-          <a href="#shop">Shop</a>
+          {/* React Router Link for Shop page */}
+          <Link to="/shop">Shop</Link>
         </nav>
 
         {/* Hamburger */}
@@ -35,7 +36,7 @@ const Header = () => {
 
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,0 +1,42 @@
+.socials-wrapper {
+  position: fixed;
+  top: 269px;
+  right: 0.5rem; /* small spacing on small screens */
+  z-index: 20;
+}
+
+@media (min-width: 768px) {
+  .socials-wrapper {
+    right: 2.5rem; /* md:right-10 */
+  }
+}
+
+.socials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* spacing between icons */
+  color: #22c55e; /* text-primaryGreen */
+  list-style: none; /* remove bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.socials-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem; /* 25px */
+  transition: transform 0.2s;
+  color: #22c55e; /* default color */
+  text-decoration: none; /* remove underline if any */
+}
+
+.socials-list li a:hover {
+  transform: translateY(-2px);
+  /* color stays the same on hover/click */
+}
+
+.socials-list li a:active,
+.socials-list li a:visited {
+  color: #22c55e; /* keeps the same color after click */
+}

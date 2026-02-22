@@ -11,24 +11,73 @@ const battles = [
 ];
 
 function VoteBattleCards() {
-  // Load votes from localStorage if available, otherwise default to 0
-  const [votes, setVotes] = useState(() => {
-    const savedVotes = localStorage.getItem('battleVotes');
-    return savedVotes ? JSON.parse(savedVotes) : { plastic: 0, flood: 0, ewaste: 0 };
-  });
+  const [votes, setVotes] = useState({ plastic: 0, flood: 0, ewaste: 0 });
+  const [hasVoted, setHasVoted] = useState(false);
 
-  // Update localStorage whenever votes change
   useEffect(() => {
-    localStorage.setItem('battleVotes', JSON.stringify(votes));
-  }, [votes]);
+    const fetchVotes = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/results", {
+          credentials: "include"
+        });
+
+        const data = await res.json();
+
+        const formatted = { plastic: 0, flood: 0, ewaste: 0 };
+
+        data.forEach(item => {
+          formatted[item._id] = item.count;
+        });
+
+        setVotes(formatted);
+
+      } catch (err) {
+        console.error("Fetch error:", err);
+      }
+    };
+
+    fetchVotes();
+  }, []);
 
   const totalVotes = Object.values(votes).reduce((sum, v) => sum + v, 0);
 
-  const handleVote = (id) => {
-    setVotes((prev) => ({
-      ...prev,
-      [id]: prev[id] + 1,
-    }));
+  const handleVote = async (id) => {
+    try {
+      const res = await fetch("http://localhost:5000/vote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ option: id })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.message);
+        setHasVoted(true);
+        return;
+      }
+
+      setHasVoted(true);
+
+      // Refresh results
+      const resultsRes = await fetch("http://localhost:5000/results", {
+        credentials: "include"
+      });
+
+      const resultsData = await resultsRes.json();
+
+      const formatted = { plastic: 0, flood: 0, ewaste: 0 };
+
+      resultsData.forEach(item => {
+        formatted[item._id] = item.count;
+      });
+
+      setVotes(formatted);
+
+    } catch (err) {
+      console.error("Vote error:", err);
+    }
   };
 
   return (
@@ -41,22 +90,37 @@ function VoteBattleCards() {
       <div className="cards-wrapper">
         {battles.map((battle) => {
           const voteCount = votes[battle.id];
-          const percentage = totalVotes ? (voteCount / totalVotes) * 100 : 0;
+          const percentage = totalVotes
+            ? (voteCount / totalVotes) * 100
+            : 0;
 
           return (
             <div key={battle.id} className="battle-card">
               <div className="card-image-wrapper">
                 <img src={battle.imageUrl} alt={battle.alt} loading="lazy" />
               </div>
+
               <div className="card-content">
                 <h2>{battle.title}</h2>
-                <button className="vote-button" onClick={() => handleVote(battle.id)} type="button">
-                  VOTE
+
+                <button
+                  className="vote-button"
+                  onClick={() => handleVote(battle.id)}
+                  disabled={hasVoted}
+                >
+                  {hasVoted ? "VOTED" : "VOTE"}
                 </button>
+
                 <div className="vote-bar-wrapper">
-                  <div className="vote-bar" style={{ width: `${percentage}%` }} />
+                  <div
+                    className="vote-bar"
+                    style={{ width: `${percentage}%` }}
+                  />
                 </div>
-                <div className="vote-count">{voteCount} votes</div>
+
+                <div className="vote-count">
+                  {voteCount} votes
+                </div>
               </div>
             </div>
           );
@@ -64,7 +128,7 @@ function VoteBattleCards() {
       </div>
 
       <footer className="total-votes">
-        TOTAL VOTES THIS MONTH: <strong>{totalVotes.toLocaleString()}</strong>
+        TOTAL VOTES THIS YEAR: <strong>{totalVotes.toLocaleString()}</strong>
       </footer>
     </div>
   );
