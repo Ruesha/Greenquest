@@ -17,7 +17,7 @@ function VoteBattleCards() {
   useEffect(() => {
     const fetchVotes = async () => {
       try {
-        const res = await fetch("http://localhost:5000/results", {
+        const res = await fetch("http://greenquest-mga3.onrender.com/results", {
           credentials: "include"
         });
 
@@ -43,7 +43,7 @@ function VoteBattleCards() {
 
   const handleVote = async (id) => {
     try {
-      const res = await fetch("http://localhost:5000/vote", {
+      const res = await fetch("http://greenquest-mga3.onrender.com/vote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -61,7 +61,7 @@ function VoteBattleCards() {
       setHasVoted(true);
 
       // Refresh results
-      const resultsRes = await fetch("http://localhost:5000/results", {
+      const resultsRes = await fetch("http://greenquest-mga3.onrender.com/results", {
         credentials: "include"
       });
 
