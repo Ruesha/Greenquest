@@ -4,6 +4,7 @@ import "./App.css";
 import CustomCursor from "./components/CustomCusor";
 import Landing from "./pages/Landing";
 import Shop from "./pages/Shop";
+import Checkout from "./components/Checkout";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </Router>
   );

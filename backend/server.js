@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const voteRoutes = require("./routes/voteRoutes");
 const waitlistRoutes = require("./routes/waitlist");
 const productRoutes = require("./routes/products");
+const flutterwaveRoutes = require("./routes/flutterwave");
+
 require('dotenv').config(); // load .env variables
 
 const app = express();
@@ -31,6 +33,7 @@ app.use(cookieParser());
 app.use("/", voteRoutes);
 app.use("/api", waitlistRoutes);
 app.use("/products", productRoutes);
+app.use("/flutterwave", flutterwaveRoutes);
 
 // Serve static images
 app.use("/images", express.static("public/images"));
