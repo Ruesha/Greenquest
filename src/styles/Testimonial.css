@@ -3,6 +3,7 @@
 .testimonial-wrapper {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 4rem 1rem;
@@ -25,6 +26,10 @@
 
 .fade-in {
   opacity: 1;
+}
+.testhead{
+  color: #22c55e;
+  margin-bottom: 20px ;
 }
 
 .fade-out {

@@ -40,6 +40,9 @@ const Testimonial = () => {
 
   return (
     <div className="testimonial-wrapper">
+      <div className="testhead">
+        <h1>Testimonials</h1>
+      </div>
       <div className={`testimonial-card ${fade ? 'fade-in' : 'fade-out'}`}>
         <p className="testimonial-detail">{t.detail}</p>
         <h4 className="testimonial-name">{t.name}</h4>
