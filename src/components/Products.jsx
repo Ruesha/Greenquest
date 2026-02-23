@@ -15,7 +15,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("http://greenquest-mga3.onrender.com/api/products");
+        const res = await fetch("https://greenquest-mga3.onrender.com/api/products");
         const data = await res.json();
         setProducts(data);
       } catch (err) {
@@ -91,7 +91,7 @@ const Products = () => {
           {products.map((product) => (
             <div className="product-card" key={product._id}>
               <img
-                src={`http://greenquest-mga3.onrender.com/images/${product.image}`}
+                src={`https://greenquest-mga3.onrender.com/images/${product.image}`}
                 alt={product.name}
                 className="product-image"
               />

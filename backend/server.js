@@ -30,7 +30,7 @@ app.use(cookieParser());
 // Routes
 app.use("/", voteRoutes);
 app.use("/api", waitlistRoutes);
-app.use("/api/products", productRoutes);
+app.use("/products", productRoutes);
 
 // Serve static images
 app.use("/images", express.static("public/images"));
