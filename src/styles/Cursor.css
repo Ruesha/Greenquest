@@ -64,3 +64,8 @@ button:hover ~ .custom-cursor {
       0 0 60px rgba(0, 255, 0, 0.9);
   }
 }
+@media (max-width: 480px ) {
+  .custom-cursor {
+    display: none;
+  }
+}
