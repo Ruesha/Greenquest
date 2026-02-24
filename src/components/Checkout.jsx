@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../styles/Checkout.css";
+import Header from "../static/Header";
+import Footer from "../static/Footer";
 
 const Checkout = () => {
   const location = useLocation();
@@ -35,7 +37,10 @@ const Checkout = () => {
   };
 
   return (
-    <div className="checkout-container">
+   <div>
+     <Header />
+     <div className="checkout-container">
+    
       <div className="checkout-card">
         <h1>Checkout</h1>
 
@@ -78,6 +83,8 @@ const Checkout = () => {
 
       </div>
     </div>
+    <Footer />
+   </div>
   );
 };
 
