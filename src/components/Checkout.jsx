@@ -1,6 +1,6 @@
-// src/pages/Checkout.jsx
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import "../styles/Checkout.css";
 
 const Checkout = () => {
   const location = useLocation();
@@ -35,39 +35,48 @@ const Checkout = () => {
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>Checkout</h1>
-      <h3>Cart Summary</h3>
-      {cart.length === 0 ? <p>Your cart is empty.</p> : (
-        <ul>
-          {cart.map(item => (
-            <li key={item._id}>
-              {item.name} x {item.quantity} = ₦{(item.price * item.quantity).toLocaleString()}
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className="checkout-container">
+      <div className="checkout-card">
+        <h1>Checkout</h1>
 
-      <h3>Total: ₦{total.toLocaleString()}</h3>
+        <h3>Cart Summary</h3>
 
-      <div style={{ margin: "1rem 0" }}>
-        <label>Email for payment:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          placeholder="you@example.com"
-          style={{ padding: "0.5rem", width: "100%", marginTop: "0.5rem" }}
-        />
+        {cart.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          <ul className="cart-list">
+            {cart.map(item => (
+              <li key={item._id} className="cart-item">
+                <span>{item.name} x {item.quantity}</span>
+                <span>₦{(item.price * item.quantity).toLocaleString()}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <div className="total">
+          Total: ₦{total.toLocaleString()}
+        </div>
+
+        <div className="checkout-input-group">
+          <label>Email for payment</label>
+          <input
+            type="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            placeholder="you@example.com"
+          />
+        </div>
+
+        <button
+          onClick={handleCheckout}
+          disabled={loading || cart.length === 0}
+          className="checkout-btn"
+        >
+          {loading ? "Processing..." : "Pay Now"}
+        </button>
+
       </div>
-
-      <button
-        onClick={handleCheckout}
-        disabled={loading || cart.length === 0}
-        style={{ padding: "0.75rem 1.5rem", fontSize: "1rem", cursor: "pointer" }}
-      >
-        {loading ? "Processing..." : "Pay Now"}
-      </button>
     </div>
   );
 };
