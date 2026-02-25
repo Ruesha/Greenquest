@@ -5,7 +5,7 @@ import CustomCursor from "./components/CustomCusor";
 import Landing from "./pages/Landing";
 import Shop from "./pages/Shop";
 import Checkout from "./components/Checkout";
-import PaymentSuccess from "./components/Paymentsuccess";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 const App = () => {
   return (
