@@ -5,7 +5,8 @@ import CustomCursor from "./components/CustomCusor";
 import Landing from "./pages/Landing";
 import Shop from "./pages/Shop";
 import Checkout from "./components/Checkout";
-import PaymentSuccess from "./pages/PaymentSuccess";
+import PaymentSuccess from "./components/Paymentsuccess";
+
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/shop" element={<Shop />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/payment-success" element={<PaymentSuccess />} />
+      
       </Routes>
     </Router>
   );
