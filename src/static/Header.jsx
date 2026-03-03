@@ -21,7 +21,7 @@ const Header = () => {
           <a href="#advocacy">Advocacy Programme</a>
           <a href="#partners">Our Partners</a>
           {/* React Router Link for Shop page */}
-          <Link to="/shop">Shop</Link>
+          {/* <Link to="/shop">Shop</Link> */}
         </nav>
 
         {/* Hamburger */}

@@ -14,10 +14,10 @@ const App = () => {
       <CustomCursor />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/shop" element={<Shop />} />
+        {/* <Route path="/shop" element={<Shop />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/payment-success" element={<PaymentSuccess />} />
-      
+       */}
       </Routes>
     </Router>
   );

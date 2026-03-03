@@ -52,10 +52,10 @@ const Waitlist = () => {
   return (
     <div className="waitwrapper">
       <div className="waittext">
-        <div className="waitheader">Join the Adventure Early</div>
+        <div className="waitheader">Join Our Waitlist</div>
         <div className="waitpara">
-          Our brand-new board game is almost here! Subscribe now and get
-          notified the moment it’s released — don’t miss out on the fun.
+          Our new game is almost here! Subscribe now and get
+          notified the moment it’s released don’t miss out on the fun.
         </div>
       </div>
 
