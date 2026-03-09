@@ -20,6 +20,7 @@ const Header = () => {
           <a href="#who">Who We Are</a>
           <a href="#advocacy">Advocacy Programme</a>
           <a href="#partners">Our Partners</a>
+          <a href="#partners">Our Games</a>
           {/* React Router Link for Shop page */}
           {/* <Link to="/shop">Shop</Link> */}
         </nav>

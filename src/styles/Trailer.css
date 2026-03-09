@@ -20,15 +20,36 @@
   margin: 0 auto 20px;
 }
 
-/* 16:9 responsive video wrapper */
+/* ================= CAROUSEL ================= */
+
+.trailer-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.trailer-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.trailer-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+/* ================= VIDEO ================= */
+
 .trailer-video-wrapper {
   position: relative;
   width: 100%;
   max-width: 1000px;
-  padding-top: 50%;
+  padding-top: 56.25%;
   margin: 30px auto 0;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
   border-radius: 12px;
 }
 
@@ -39,6 +60,40 @@
   width: 100%;
   height: 100%;
   border: none;
+}
+
+/* ================= THUMBNAIL ================= */
+
+.thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  color: white;
+  background: rgba(0,0,0,0.6);
+  padding: 15px 25px;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.play-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 /* ================= COUNTDOWN ================= */
@@ -53,16 +108,15 @@
   color: #00c6ff;
 }
 
-/* Timer Box */
 .time-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(0, 198, 255, 0.1);
+  background: rgba(0,198,255,0.1);
   padding: 12px 18px;
   border-radius: 10px;
   min-width: 70px;
-  box-shadow: 0 4px 10px rgba(0, 198, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0,198,255,0.2);
   transition: transform 0.3s ease;
 }
 
@@ -88,20 +142,11 @@
   .trailer-section h2 {
     font-size: 2rem;
   }
-
-  .trailer-section p {
-    font-size: 0.95rem;
-  }
-
-  .trailer-video-wrapper {
-    max-width: 500px;
-  }
 }
 
-/* ================= MOBILE (SAME LINE) ================= */
+/* ================= MOBILE ================= */
 
 @media (max-width: 600px) {
-
   .trailer-section {
     padding: 60px 16px;
   }
@@ -114,27 +159,21 @@
     font-size: 0.9rem;
   }
 
-  .trailer-video-wrapper {
-    max-width: 100%;
-    padding-top: 100%;
-  }
-
-  /* 🔥 Keep timer boxes on same line */
   .countdown {
-    flex-wrap: nowrap;      /* prevent wrapping */
-    gap: 10px;              /* reduce space */
+    flex-wrap: nowrap;
+    gap: 10px;
   }
 
   .time-box {
-    padding: 8px 10px;      /* shrink box */
+    padding: 8px 10px;
     min-width: 60px;
   }
 
   .number {
-    font-size: 1.2rem;      /* smaller number */
+    font-size: 1.2rem;
   }
 
   .label {
-    font-size: 0.65rem;     /* smaller label */
+    font-size: 0.65rem;
   }
 }
