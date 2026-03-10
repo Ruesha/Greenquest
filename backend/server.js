@@ -8,25 +8,42 @@ const waitlistRoutes = require("./routes/waitlist");
 const productRoutes = require("./routes/products");
 const flutterwaveRoutes = require("./routes/flutterwave");
 
-require('dotenv').config(); // load .env variables
+require("dotenv").config();
 
 const app = express();
 
-// Use trust proxy for secure cookies if behind a proxy (Render handles this)
+// Trust proxy (important for Render)
 app.set("trust proxy", 1);
 
-// CORS setup
-app.use(cors({
-  origin: [
-    "http://localhost:5173", // local dev
-    "http://localhost:5174", // local dev alternative
-    process.env.FRONTEND_URL,
-     "http://greenquestinnovations.org",
-    "https://greenquestinnovations.org",
-      // deployed frontend
-  ],
-  credentials: true
-}));
+// Allowed frontend origins
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "http://greenquestinnovations.org",
+  "https://greenquestinnovations.org",
+  process.env.FRONTEND_URL
+];
+
+// CORS configuration
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.indexOf(origin) !== -1) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+  })
+);
+
+// Handle preflight requests
+app.options("*", cors());
 
 // Middleware
 app.use(express.json());
@@ -42,17 +59,19 @@ app.use("/flutterwave", flutterwaveRoutes);
 app.use("/images", express.static("public/images"));
 
 // MongoDB connection
-
-mongoose.connect(process.env.MONGO_URI)
+mongoose
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log("Mongo Error:", err));
-// Basic test route
+
+// Test route
 app.get("/", (req, res) => {
   res.status(200).send("Backend is running 🚀");
 });
 
-// Start server on PORT from .env or fallback to 5000
+// Start server
 const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
