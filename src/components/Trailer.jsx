@@ -7,16 +7,15 @@ import trailer2Img from "../assets/RescueTide.jpg";
 const trailers = [
   {
     id: 1,
-    title: "GreenQuest:Rescue Tide",
+    title: "GreenQuest: Rescue Tide",
     description:
       "Rescue Tide is an interactive educational simulation that places the player in the role of a community leader responding to a rapidly developing flood emergency in a Lagos urban community.",
-    video: "https://www.youtube.com/embed/YOUR_SECOND_VIDEO",
     thumbnail: trailer2Img,
     launchDate: new Date("2026-04-15T00:00:00"),
   },
   {
     id: 2,
-    title: "GreenQuest:Monsters and Threats",
+    title: "GreenQuest: Monsters and Threats",
     description:
       "Help Niko, a brave orphan girl living in a post-apocalyptic world destroyed by pollution and climate change, save her brother.",
     video: "https://www.youtube.com/embed/HuaiE7vX688",
@@ -77,7 +76,15 @@ const Trailer = () => {
               </p>
 
               <div className="trailer-video-wrapper">
-                {activeVideo === trailer.id ? (
+
+                {/* FIRST TRAILER → IMAGE ONLY */}
+                {trailer.id === 1 ? (
+                  <img
+                    src={trailer.thumbnail}
+                    alt={trailer.title}
+                    className="static-image"
+                  />
+                ) : activeVideo === trailer.id ? (
                   <iframe
                     src={`${trailer.video}?autoplay=1`}
                     title={trailer.title}
@@ -93,6 +100,7 @@ const Trailer = () => {
                     <div className="play-button">▶</div>
                   </div>
                 )}
+
               </div>
 
               {timeLeft[trailer.id] ? (
@@ -108,9 +116,12 @@ const Trailer = () => {
                 <div className="countdown">🚀 Launched!</div>
               )}
 
-              <div className="swipe-container">
-                <div className="swipe-arrow">Swipe →</div>
-              </div>
+              {/* SWIPE ONLY ON FIRST SLIDE */}
+              {trailer.id === 1 && (
+                <div className="swipe-container">
+                  <div className="swipe-arrow">Swipe →</div>
+                </div>
+              )}
 
             </div>
           ))}

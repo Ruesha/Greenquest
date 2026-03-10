@@ -20,7 +20,10 @@ app.use(cors({
   origin: [
     "http://localhost:5173", // local dev
     "http://localhost:5174", // local dev alternative
-    process.env.FRONTEND_URL  // deployed frontend
+    process.env.FRONTEND_URL,
+     "http://greenquestinnovations.org",
+    "https://greenquestinnovations.org",
+      // deployed frontend
   ],
   credentials: true
 }));
