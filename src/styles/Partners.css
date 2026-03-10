@@ -25,49 +25,65 @@
   text-shadow: 0 0 10px rgba(0, 255, 200, 0.3);
 }
 
-/* ================= LOGO GRID ================= */
+/* ================= CAROUSEL ================= */
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ================= LOGO TRACK ================= */
 
 .logos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 30px;
-  width: 100%;
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: scrollLogos 25s linear infinite;
   align-items: center;
-  justify-items: center;
 }
 
 /* ================= LOGO STYLE ================= */
 
 .logos img {
-  width: 100%;
-  max-width: 140px;
+  width: 140px;
   height: auto;
-  filter: grayscale(100%) brightness(1.2);
+  flex-shrink: 0;
+  /* filter: grayscale(100%) brightness(1.2); */
   opacity: 0.8;
   transition: all 0.35s ease;
 }
 
-/* Hover Effect */
 .logos img:hover {
   filter: grayscale(0%) brightness(1);
   transform: scale(1.08);
   opacity: 1;
 }
 
+/* ================= ANIMATION ================= */
+
+@keyframes scrollLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* ================= TABLET ================= */
 
 @media (max-width: 992px) {
-
   .partners-title {
     font-size: 1.9rem;
   }
 
-  .logos {
-    gap: 20px;
+  .logos img {
+    width: 120px;
   }
 }
 
-/* ================= MOBILE (FORCE 4 PER ROW) ================= */
+/* ================= MOBILE ================= */
 
 @media (max-width: 600px) {
 
@@ -81,11 +97,10 @@
   }
 
   .logos {
-    grid-template-columns: repeat(4, 1fr); /* 🔥 4 logos per row */
-    gap: 15px;
+    gap: 20px;
   }
 
   .logos img {
-    max-width: 90px; /* shrink slightly to fit neatly */
+    width: 90px;
   }
 }

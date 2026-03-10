@@ -48,7 +48,7 @@ const Advocacy = () => {
         <h2>LEARNING CIRCLE</h2>
 
         <p>
-          Our advocacy program brings our games into real communities through
+          Our Learning Circle brings our games into real communities through
           workshops, storytelling, and environmental action.
         </p>
 

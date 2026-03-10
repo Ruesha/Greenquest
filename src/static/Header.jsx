@@ -18,7 +18,7 @@ const Header = () => {
         <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
          <Link to="/" className="active">Home</Link>
           <a href="#who">Who We Are</a>
-          <a href="#advocacy">Advocacy Programme</a>
+          <a href="#advocacy">Learning Circle</a>
           <a href="#partners">Our Partners</a>
           <a href="#partners">Our Games</a>
           {/* React Router Link for Shop page */}

@@ -22,7 +22,7 @@ const Footer = () => {
         <div className='footer-right'>
           <h4>Download the app</h4>
           <div className='app-images'>
-            <img src={appstore} className='appstore' alt="App Store" />
+            {/* <img src={appstore} className='appstore' alt="App Store" /> */}
             <img src={googleplay} className='googleplay' alt="Google Play" />
           </div>
         </div>
