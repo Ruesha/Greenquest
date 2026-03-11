@@ -60,15 +60,13 @@ const Trailer = () => {
     unit.charAt(0).toUpperCase() + unit.slice(1);
 
   return (
-    <section className="trailer-section">
+    <section id="games" className="trailer-section">
       <h2>Our Games</h2>
 
       <div className="trailer-carousel-wrapper">
         <div className="trailer-carousel">
-
           {trailers.map((trailer) => (
             <div key={trailer.id} className="trailer-slide">
-
               <p>
                 <strong className="title">{trailer.title}</strong>
                 <br />
@@ -76,7 +74,6 @@ const Trailer = () => {
               </p>
 
               <div className="trailer-video-wrapper">
-
                 {/* FIRST TRAILER → IMAGE ONLY */}
                 {trailer.id === 1 ? (
                   <img
@@ -100,7 +97,6 @@ const Trailer = () => {
                     <div className="play-button">▶</div>
                   </div>
                 )}
-
               </div>
 
               {timeLeft[trailer.id] ? (
@@ -122,10 +118,8 @@ const Trailer = () => {
                   <div className="swipe-arrow">Swipe →</div>
                 </div>
               )}
-
             </div>
           ))}
-
         </div>
       </div>
     </section>

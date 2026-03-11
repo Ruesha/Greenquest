@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/Ceo.css'
 
-import member1 from '../assets/teams/Grace.jpg'
+import member1 from '../assets/teams/Grace.jpeg'
 import member2 from '../assets/teams/David.jpg'
 import member3 from '../assets/teams/Kelvin.jpg'
 

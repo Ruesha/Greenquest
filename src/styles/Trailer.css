@@ -3,7 +3,6 @@
 .trailer-section{
   background:#091416;
   padding:80px 20px;
-  text-align:justify;
   color:white;
   font-family:"Orbitron",sans-serif;
 }
@@ -19,11 +18,12 @@
   line-height:1.6;
   max-width:700px;
   margin:0 auto 20px;
+  text-align:justify;
 }
 
 .title{
-  font-size:1.7rem;
-  text-align:center;
+  font-size:1.5rem;
+  text-align:left;
 }
 
 /* ================= CAROUSEL ================= */
@@ -212,5 +212,24 @@
     gap:12px;
     padding:0 10px;
   }
+  @media(max-width:600px){
+
+  /* Make the video / thumbnail taller */
+  .trailer-video-wrapper{
+    height:400px; /* or any value you prefer */
+    padding-top:0; /* disable padding trick */
+  }
+
+  .thumbnail,
+  .thumbnail img,
+  .static-image{
+    height:100%; /* fill the wrapper */
+    object-fit:cover; /* avoid stretching */
+  }
+
+}
+.title{
+  width: 50%;
+}
 
 }

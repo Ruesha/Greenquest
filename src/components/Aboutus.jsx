@@ -8,10 +8,17 @@ const Aboutus = () => {
     <section className="video-about">
 
       {/* SECTION 1 — WHO WE ARE */}
-      <div className="video-block">
+      <div id="who" className="video-block">
         <h2 className="section-heading">Who We Are</h2>
         <div className="video-section">
-          <video src={slime} autoPlay loop muted playsInline className="bg-video" />
+          <video
+            src={slime}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="bg-video"
+          />
           <div className="video-overlay-dark" />
 
           <div className="video-text left">
@@ -22,10 +29,17 @@ const Aboutus = () => {
       </div>
 
       {/* SECTION 2 — OUR MISSION */}
-      <div className="video-block">
+      <div id="mission" className="video-block">
         <h2 className="section-heading">Our Mission</h2>
         <div className="video-section">
-          <video src={girl} autoPlay loop muted playsInline className="bg-video" />
+          <video
+            src={girl}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="bg-video"
+          />
           <div className="video-overlay-dark" />
 
           <div className="video-text right">

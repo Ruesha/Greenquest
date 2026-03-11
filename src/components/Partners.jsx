@@ -14,7 +14,6 @@ import leaf from "../assets/whiteleaf.png";
 import "../styles/Partners.css";
 
 const Partners = () => {
-
   const logos = [
     logo1,
     logo2,
@@ -28,8 +27,7 @@ const Partners = () => {
   ];
 
   return (
-    <div className="partners-section">
-
+    <section id="partners" className="partners-section">
       <h3 className="partners-title">
         <img src={leaf} alt="" width={30} />
         Featured In
@@ -37,7 +35,6 @@ const Partners = () => {
 
       <div className="carousel">
         <div className="logos">
-
           {/* first set */}
           {logos.map((logo, index) => (
             <img key={index} src={logo} alt="partner logo" />
@@ -47,11 +44,9 @@ const Partners = () => {
           {logos.map((logo, index) => (
             <img key={"dup" + index} src={logo} alt="partner logo" />
           ))}
-
         </div>
       </div>
-
-    </div>
+    </section>
   );
 };
 

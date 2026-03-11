@@ -1,5 +1,5 @@
 import React from 'react';
-import ceo from '../assets/teams/ceo.png';
+import ceo from '../assets/teams/ceo.jpeg';
 import '../styles/Team.css'; // Create a Team.css for the styles
 
 const Team = () => {

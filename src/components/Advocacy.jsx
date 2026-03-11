@@ -43,7 +43,7 @@ const Advocacy = () => {
   const infiniteImages = [...images, ...images];
 
   return (
-    <div className="advocacy-section">
+    <section id="advocacy" className="advocacy-section">
       <div className="advocacy-text">
         <h2>LEARNING CIRCLE</h2>
 
@@ -68,7 +68,7 @@ const Advocacy = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
